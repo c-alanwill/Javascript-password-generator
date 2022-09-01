@@ -17,7 +17,7 @@
 
 * The project is currently running on Github server.  It can be viewed at: https://c-alanwill.github.io/Cory-Williams-Portfolio/
 
-The code for this project can be found on GitHub at: https://github.com/c-alanwill/Cory-Williams-Portfolio 
+The code for this project can be found on GitHub at: https://github.com/c-alanwill/Javascript-password-generator
 
 The code used on this page is HTML and Javascript.  There is an index.html file to view the code.  An image of the password genertor is contained under the "images" folder.
 
