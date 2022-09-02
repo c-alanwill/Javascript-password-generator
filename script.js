@@ -114,28 +114,41 @@ function writePassword() {
 }
 
 function generatePassword() {
-    var passwordLength = window.prompt("How many characters would you like your password to contain?");
+    var passwordLength = parseInt(
+        prompt('How many characters would you like your password to contain?')
+      );
+      if (Number.isNaN(passwordLength)) {
+        alert('Please enter a number');
+        return null;
+      }
+      if (passwordLength < 8 || passwordLength > 128){
+        window.alert('Please choose a number betweem 8 and 128 characters.');
+        return null;
+      }
+
 
     // Ask user if they want special characters for their password
     var includeSpecial = window.confirm("Click OK to confirm including special characters.");
-    
+    console.log(includeSpecial)
     // Ask user if they want numeric characters for their password
     var includeNumeric = window.confirm("Click OK to confirm including numeric characters.");
-    
+    console.log(includeNumeric)
     // Ask user if they want numeric characters for their password
     var includeLowerCase = window.confirm("Click OK to confirm including lowercase characters.");
-    
+    console.log(includeLowerCase)
     // Ask user if they want numeric characters for their password
     var includeUpperCase = window.confirm("Click OK to confirm including upperrcase characters.");
-
+    console.log(includeUpperCase)
     basket = [];
     
 if (includeSpecial == true) {
     basket = basket.concat(specialCharacters);
 }
+
 if (includeNumeric == true) {
     basket = basket.concat(numericCharacters);
 }
+
 if (includeLowerCase == true) {
     basket = basket.concat(lowerCaseCharacters);
 }
@@ -148,10 +161,13 @@ console.log(basket);
 var password = "";
 
 for(i = 0; i < passwordLength; i++) {
-    var randomChar = basket[Math.floor(Math.random() * basket.length)];
+    console.log(basket.length)
+    var randomIndex = Math.floor(Math.random() * basket.length)
+    var randomChar = basket[randomIndex];
     password = password + randomChar;
-}
     return password
+
+}
 }
 
 // Add event listener to generate button
