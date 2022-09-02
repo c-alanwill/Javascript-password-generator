@@ -107,9 +107,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+ console.log(password);
 
 }
 
@@ -121,23 +119,23 @@ function generatePassword() {
         alert('Please enter a number');
         return null;
       }
-      if (passwordLength < 8 || passwordLength > 128){
+      if (passwordLength < 8 || passwordLength > 128) {
         window.alert('Please choose a number betweem 8 and 128 characters.');
         return null;
       }
 
 
     // Ask user if they want special characters for their password
-    var includeSpecial = window.confirm("Click OK to confirm including special characters.");
+    var includeSpecial = confirm("Click OK to confirm including special characters.");
     console.log(includeSpecial)
     // Ask user if they want numeric characters for their password
-    var includeNumeric = window.confirm("Click OK to confirm including numeric characters.");
+    var includeNumeric = confirm("Click OK to confirm including numeric characters.");
     console.log(includeNumeric)
     // Ask user if they want numeric characters for their password
-    var includeLowerCase = window.confirm("Click OK to confirm including lowercase characters.");
+    var includeLowerCase = confirm("Click OK to confirm including lowercase characters.");
     console.log(includeLowerCase)
     // Ask user if they want numeric characters for their password
-    var includeUpperCase = window.confirm("Click OK to confirm including upperrcase characters.");
+    var includeUpperCase = confirm("Click OK to confirm including uppercase characters.");
     console.log(includeUpperCase)
     basket = [];
     
@@ -160,16 +158,19 @@ console.log(basket);
 
 var password = "";
 
+console.log(password);
 for(i = 0; i < passwordLength; i++) {
     console.log(basket.length)
     var randomIndex = Math.floor(Math.random() * basket.length)
     var randomChar = basket[randomIndex];
     password = password + randomChar;
-    return password
+    console.log(password);
+    var passwordText = document.getElementById("password");
+    passwordText.textContent = password;
 
 }
 }
-
+console.log(password);
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
